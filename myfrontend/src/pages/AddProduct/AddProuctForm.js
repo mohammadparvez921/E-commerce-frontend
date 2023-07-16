@@ -12,7 +12,7 @@ const AddProductForm = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('/api/products', {
+      const response = await fetch('http://localhost:3002/products', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
