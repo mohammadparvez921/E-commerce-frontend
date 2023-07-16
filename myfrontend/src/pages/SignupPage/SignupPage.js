@@ -5,6 +5,8 @@ import './signupPage.css'; // Import the CSS file
 const SignupPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
     
 
   function handleSubmit(e){
@@ -16,12 +18,13 @@ const SignupPage = () => {
       },
       credentials: "include",
       method: 'POST',
-      body:JSON.stringify({username,password}),
+      body:JSON.stringify({username,password,email}),
     }).then(response => {
       if (response.status === 200) {
         return response.json()
       }
       else {
+        setError('Email registered already')
         console.log("some error")
       }
     })
@@ -31,12 +34,17 @@ const SignupPage = () => {
       .catch((error) => {
         console.log(error)
       })
+      setEmail('');
+      setError('');
+      setPassword('');
+      setUsername('');
   }
  
 
   return (
     <div className="signup-container">
       <h1>Signup</h1>
+      {error && <div style={{color:'red'}} className="error">{error}</div>}
       <form onSubmit={handleSubmit}>
         <label>
           Username:
@@ -47,6 +55,15 @@ const SignupPage = () => {
           />
         </label>
         <br />
+        <label>
+          Email:
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </label>
+        <br/>
         <label>
           Password:
           <input

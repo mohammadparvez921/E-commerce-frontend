@@ -1,7 +1,9 @@
 import React from "react";
 import "./App.css";
 // import axios from "axios";
-import SignupPage from "./pages/SignupPage/SignupPage";
+// import SignupPage from "./pages/SignupPage/SignupPage";
+// import LogInPage from "./pages/LogInPage/LogInPage";
+import AddProductForm from "./pages/AddProduct/AddProuctForm";
 function App() {
   
 
@@ -31,7 +33,9 @@ function App() {
 
   return (
     <div className="App">
-     <SignupPage/>
+     {/* <SignupPage/> */}
+     {/* <LogInPage/>*/}
+     <AddProductForm/>
     </div>
   );
 }
