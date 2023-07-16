@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './logInPage.css';
+import { useNavigate } from 'react-router-dom';
 
 const LogInPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [sucessAlert,setsucessAlert]=useState('');
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -21,8 +23,10 @@ const LogInPage = () => {
       const responseData = await response.json();
 
       if (response.ok && responseData.success) {
-        
         setsucessAlert('Sucessfully loggedin!')
+        navigate('/productList');
+        
+       
         console.log('Authentication successful');
       } else {
         setError(responseData.error || 'Incorrect email or Password');

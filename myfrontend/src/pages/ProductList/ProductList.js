@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './ProductList.css';
+import {Link} from 'react-router-dom'
+
+
+
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -25,9 +29,7 @@ const ProductList = () => {
     }
   };
 
-  const handleEdit = (productId) => {
-    console.log(`Edit product with ID ${productId}`);
-  };
+  ;
 
 
   const handleDelete = async (productName) => {
@@ -76,7 +78,9 @@ const ProductList = () => {
               <td >{product.category}</td>
               <td >{product.price}</td>
               <td >
-                <button onClick={() => handleEdit(product.id)}>Edit</button>
+              <Link to={`/edit-product/${product.productName}`}>
+                 <button >Edit</button>
+                  </Link>
               </td>
               <td>
                 <button onClick={() => handleDelete(product.productName)}>
