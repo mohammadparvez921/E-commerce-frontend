@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ProductList.css';
 import {Link} from 'react-router-dom'
-
+import NavBarVendor from '../../components/NavBar/NavBarVendor';
 
 
 
@@ -55,6 +55,7 @@ const ProductList = () => {
   };
 
   return (
+    <><NavBarVendor/>
     <div className="product-list-container">
       <h2>Product List</h2>
       {error && <div className="error">{error}</div>}
@@ -92,6 +93,7 @@ const ProductList = () => {
         </tbody>
       </table>
     </div>
+    </>
   );
 };
 

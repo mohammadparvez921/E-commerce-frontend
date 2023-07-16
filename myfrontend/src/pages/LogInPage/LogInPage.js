@@ -24,7 +24,7 @@ const LogInPage = () => {
 
       if (response.ok && responseData.success) {
         setsucessAlert('Sucessfully loggedin!')
-        navigate('/productList');
+        navigate('/dashboard');
         
        
         console.log('Authentication successful');

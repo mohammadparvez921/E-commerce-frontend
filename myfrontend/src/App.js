@@ -5,7 +5,7 @@ import {BrowserRouter,Routes,Route,Link} from 'react-router-dom'
 // import axios from "axios";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LogInPage from "./pages/LogInPage/LogInPage";
-// import AddProductForm from "./pages/AddProduct/AddProuctForm";
+import AddProductForm from "./pages/AddProduct/AddProuctForm";
 import ProductList from "./pages/ProductList/ProductList";
 // import EditPage from "./pages/EditPage/EditPage";
 import HomePage from "./pages/HomePage/HomePage";
@@ -66,6 +66,8 @@ function App() {
           <Route path="/login" element={<LogInPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/productList" element={<ProductList />} />
+          <Route path="/dashboard" element={<ProductList />} />
+          <Route path="/addproduct" element={<AddProductForm />} />
         </Routes>
       </div>
  
