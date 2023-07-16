@@ -29,8 +29,27 @@ const ProductList = () => {
     console.log(`Edit product with ID ${productId}`);
   };
 
-  const handleDelete = (productId) => {
-    console.log(`Delete product with ID ${productId}`);
+
+  const handleDelete = async (productName) => {
+    try {
+      const response = await fetch('http://localhost:3002/deleteproduct', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ productName }),
+      });
+
+      if (response.ok) {
+        console.log(`Product "${productName}" deleted successfully`);
+        fetchProducts(); // Refresh the product list
+      } else {
+        setError('Failed to delete product');
+      }
+    } catch (error) {
+      console.error(error);
+      setError('Failed to delete product');
+    }
   };
 
   return (
@@ -51,6 +70,7 @@ const ProductList = () => {
         <tbody>
           {products.map((product) => (
             <tr key={product.id}>
+                
               <td>{product.productName}</td>
               <td>{product.description}</td>
               <td >{product.category}</td>
@@ -59,7 +79,7 @@ const ProductList = () => {
                 <button onClick={() => handleEdit(product.id)}>Edit</button>
               </td>
               <td>
-                <button onClick={() => handleDelete(product.id)}>
+                <button onClick={() => handleDelete(product.productName)}>
                   Delete
                 </button>
               </td>
