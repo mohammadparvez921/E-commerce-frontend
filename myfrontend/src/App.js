@@ -3,7 +3,8 @@ import "./App.css";
 // import axios from "axios";
 // import SignupPage from "./pages/SignupPage/SignupPage";
 // import LogInPage from "./pages/LogInPage/LogInPage";
-import AddProductForm from "./pages/AddProduct/AddProuctForm";
+// import AddProductForm from "./pages/AddProduct/AddProuctForm";
+import ProductList from "./pages/ProductList/ProductList";
 function App() {
   
 
@@ -34,8 +35,9 @@ function App() {
   return (
     <div className="App">
      {/* <SignupPage/> */}
-     {/* <LogInPage/>*/}
-     <AddProductForm/>
+     {/* <LogInPage/> */}
+     {/* <AddProductForm/> */}
+     <ProductList/>
     </div>
   );
 }

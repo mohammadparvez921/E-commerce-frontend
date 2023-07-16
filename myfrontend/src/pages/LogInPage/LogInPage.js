@@ -21,7 +21,7 @@ const LogInPage = () => {
       const responseData = await response.json();
 
       if (response.ok && responseData.success) {
-        // Authentication successful, redirect or perform desired action
+        
         setsucessAlert('Sucessfully loggedin!')
         console.log('Authentication successful');
       } else {
