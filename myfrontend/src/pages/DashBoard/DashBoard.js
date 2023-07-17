@@ -35,9 +35,18 @@ function DashBoard() {
   
   function handleEdit(productName){
     navigate(`/editproduct/${productName}`);
+    
   }
-
   
+  function handleSportsClick(Category){
+    navigate(`/${Category}`);
+  };
+  
+ 
+  function handleElectronicsClick(Category){
+    // setCategoery(Category);
+    navigate(`/${Category}`)
+  }
 
 
   const handleDelete = async (productName) => {
@@ -89,8 +98,8 @@ function DashBoard() {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item as={Link} to="/goroceryitems">Grocery</Dropdown.Item>
-                  <Dropdown.Item as={Link} to="/electronicsitems">Electronics</Dropdown.Item>
+                  <Dropdown.Item  onClick={()=>handleSportsClick('Sports')}>Sports</Dropdown.Item>
+                  <Dropdown.Item   onClick={()=>handleElectronicsClick('Electronics')}>Electronics</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </li>
