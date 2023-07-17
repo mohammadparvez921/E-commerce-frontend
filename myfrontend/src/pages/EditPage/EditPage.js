@@ -1,69 +1,56 @@
 import React, { useState,useEffect } from 'react';
 import './EditPage.css';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const EditPage = () => {
-    const { productname } = useParams();
-  const [productName, setProductName] = useState(productname);
+    const { productName } = useParams();
+    const navigate = useNavigate();
+  const [productname, setProductname] = useState(productName);
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [price, setPrice] = useState('');
   const [error, setError] = useState('');
-  useEffect(() => {
-    fetchProduct();
-  }, []);
+ 
 
-  const fetchProduct = async () => {
+
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    setDescription('');
+    setCategory('');
+    setPrice('');
+
     try {
-      const response = await fetch(`http://localhost:3002/products/${productname}`);
-
-      if (response.ok) {
-        const data = await response.json();
-        const { description, category, price } = data;
-        setDescription(description);
-        setCategory(category);
-        setPrice(price);
-      } else {
-        console.error('Failed to fetch product');
-      }
-    } catch (error) {
-      console.error(error);
-      console.error('Failed to fetch product');
-    }
-  };
-
-
-
-  const handleUpdate = async () => {
-    try {
-      const response = await fetch(`/products/${productname}`, {
+      const response = await fetch(`http://localhost:3002/updateproduct/${productName}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-            productName,
-          description,
-          category,
-          price,
-        }),
+        body: JSON.stringify({ description, category, price }),
       });
 
       if (response.ok) {
-        console.log(`Product "${productName}" updated successfully`);
+        const data = await response.json();
+        console.log('Product information updated');
+        // navigate(`/Dashboard/${email}`);
+  
+        // Perform any necessary actions after the update
       } else {
-        console.error('Failed to update product');
+        setError('Failed to update product information');
       }
     } catch (error) {
       console.error(error);
-      console.error('Failed to update product');
+      setError('Failed to update product information');
     }
+    
+
   };
 
   return (
     <div>
       <h2>Edit Product</h2>
       <p>Product Name: {productName}</p>
+      {error && <div>{error}</div>}
       <div>
         <label>
           Description:

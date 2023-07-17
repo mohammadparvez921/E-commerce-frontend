@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 // import axios from 'axios';
 import './signupPage.css'; // Import the CSS file
-
+import { useNavigate } from 'react-router-dom';
 const SignupPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
-    
+  const navigate = useNavigate();
 
   function handleSubmit(e){
      e.preventDefault();
@@ -21,6 +21,7 @@ const SignupPage = () => {
       body:JSON.stringify({username,password,email}),
     }).then(response => {
       if (response.status === 200) {
+        navigate('/login');
         return response.json()
       }
       else {

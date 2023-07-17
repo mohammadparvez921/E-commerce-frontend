@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import './addProductForm.css';
-
+import {useParams} from 'react-router-dom'
 const AddProductForm = () => {
   const [productName, setProductName] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [price, setPrice] = useState('');
   const [error, setError] = useState('');
+  const {emailid}=useParams();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3002/products', {
+      const response = await fetch(`http://localhost:3002/addproducts/${emailid}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

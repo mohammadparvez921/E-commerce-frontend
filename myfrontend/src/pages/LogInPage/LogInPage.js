@@ -24,7 +24,7 @@ const LogInPage = () => {
 
       if (response.ok && responseData.success) {
         setsucessAlert('Sucessfully loggedin!')
-        navigate('/dashboard');
+        navigate(`/Dashboard/${email}`);
         
        
         console.log('Authentication successful');
