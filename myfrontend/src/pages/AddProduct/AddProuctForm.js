@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './addProductForm.css';
-import {useParams} from 'react-router-dom'
+import {useParams,Link,useNavigate} from 'react-router-dom'
+import { Dropdown } from 'react-bootstrap'
+
+
 const AddProductForm = () => {
   const [productName, setProductName] = useState('');
   const [description, setDescription] = useState('');
@@ -8,6 +11,7 @@ const AddProductForm = () => {
   const [price, setPrice] = useState('');
   const [error, setError] = useState('');
   const {emailid}=useParams();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,7 +44,74 @@ const AddProductForm = () => {
     }
   };
 
+
+  
+  function handleSportsClick(Category) {
+    navigate(`/${emailid}/${Category}`);
+  }
+
+  function handleElectronicsClick(Category) {
+    navigate(`/${emailid}/${Category}`);
+  }
+
+  function handleSorting() {
+    navigate(`/sortedproducts/${emailid}`);
+  }
+
+
   return (
+
+     <div className="addproduct-class">
+
+    <nav className="navbar navbar-expand-lg  navbar-dark bg-dark">
+    <div className="container">
+      <Link to="/" className="navbar-brand">
+        MyCart
+      </Link>
+
+      <div className="collapse navbar-collapse">
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <Link to={`/addproduct/${emailid}`} className="nav-link">
+              Add Product
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Dropdown>
+              <Dropdown.Toggle variant="secondary" id="category-dropdown">
+                Category
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item onClick={() => handleSportsClick('Sports')}>Sports</Dropdown.Item>
+                <Dropdown.Item onClick={() => handleElectronicsClick('Electronics')}>Electronics</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </li>
+          <li className="nav-item">
+            <Dropdown>
+              <Dropdown.Toggle variant="secondary" id="sort-dropdown" onClick={handleSorting}>
+                Sort By Price
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item as={Link} to="/sortprice">Price</Dropdown.Item>
+                {/* <Dropdown.Item as={Link} to="/sortprice">Price</Dropdown.Item> */}
+              </Dropdown.Menu>
+            </Dropdown>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
     <div className="add-product-form">
       <h2>Add Product</h2>
       {error && <div className="error">{error}</div>}
@@ -82,6 +153,11 @@ const AddProductForm = () => {
         <br />
         <button type="submit">Add Product</button>
       </form>
+    </div>
+
+
+
+
     </div>
   );
 };

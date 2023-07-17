@@ -20,18 +20,13 @@ function NavBar() {
         <div className="navbar-collapse">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <Link to="/mycart" className="nav-link">
-                My Cart
-              </Link>
-            </li>
-            <li className="nav-item">
               <Dropdown>
                 <Dropdown.Toggle variant="secondary" id="dropdown-basic">
                   Login/Signup
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item  as={Link} to="/login">
+                  <Dropdown.Item  as={Link} to="/">
                   
                     Login
                   </Dropdown.Item>

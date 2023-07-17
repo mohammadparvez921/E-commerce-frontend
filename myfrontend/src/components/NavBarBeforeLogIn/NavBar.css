@@ -1,17 +1,25 @@
-.navbar {
-    padding: 1rem;
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+  color: white;
+  margin-right: 10px;
+}
+
+.dropdown-toggle {
+  background-color: #6c757d;
+  border: none;
+}
+
+.dropdown-item {
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    margin-top: 10px;
   }
-  
-  .navbar-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .nav-link {
-    margin-right: 1rem;
-  }
-  
-  .dropdown-toggle {
-    margin-left: 1rem;
-  }
-  
+}

@@ -46,3 +46,23 @@
     margin-bottom: 10px;
   }
   
+  /* Navbar */
+.navbar {
+  background-color: #343a40;
+  
+}
+.container{
+  display: flex;
+  flex-direction: row;
+  background-color: #71797f;
+}
+
+.navbar-brand {
+  color: #fff;
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+  color: #fff;
+}
+

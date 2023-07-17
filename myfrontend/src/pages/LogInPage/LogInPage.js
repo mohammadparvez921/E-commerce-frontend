@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './logInPage.css';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const LogInPage = () => {
   const [email, setEmail] = useState('');
@@ -63,6 +64,7 @@ const LogInPage = () => {
         <br />
         <button type="submit">Login</button>
       </form>
+      <span>Not registered yet?<Link to="/signup">Signup</Link></span>
     </div>
   );
 };

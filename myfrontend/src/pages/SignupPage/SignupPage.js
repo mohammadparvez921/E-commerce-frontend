@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 // import axios from 'axios';
-import './signupPage.css'; // Import the CSS file
-import { useNavigate } from 'react-router-dom';
+import './signupPage.css'; 
+import { useNavigate,Link } from 'react-router-dom';
+import NavBar from '../../components/NavBarBeforeLogIn/NavBar';
 const SignupPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -43,6 +44,8 @@ const SignupPage = () => {
  
 
   return (
+    <>
+    <NavBar/>
     <div className="signup-container">
       <h1>Signup</h1>
       {error && <div style={{color:'red'}} className="error">{error}</div>}
@@ -76,7 +79,9 @@ const SignupPage = () => {
         <br />
         <button type="submit">Signup</button>
       </form>
+      <span>Already Registered?<Link to="/">Login</Link></span>
     </div>
+    </>
   );
 };
 
