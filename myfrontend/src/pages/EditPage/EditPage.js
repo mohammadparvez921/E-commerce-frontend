@@ -43,11 +43,12 @@ const EditPage = () => {
       setError('Failed to update product information');
     }
     
+    // navigate(`/Dashboard/${emailid}`)
 
   };
 
   return (
-    <div>
+    <div className='edit-form'>
       <h2>Edit Product</h2>
       <p>Product Name: {productName}</p>
       {error && <div>{error}</div>}

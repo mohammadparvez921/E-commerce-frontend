@@ -140,6 +140,11 @@ const SortedProducts = () => {
               </Dropdown.Menu>
             </Dropdown>
           </li>
+          <li className="nav-item">
+                  <Link to="/" className="nav-link">
+                    LogOut
+                  </Link>
+                </li>
         </ul>
       </div>
     </div>

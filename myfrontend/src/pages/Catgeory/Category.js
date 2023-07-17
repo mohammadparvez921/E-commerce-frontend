@@ -134,6 +134,12 @@ const Category = () => {
                     </Dropdown.Menu>
                   </Dropdown>
                 </li>
+
+                <li className="nav-item">
+                  <Link to="/" className="nav-link">
+                    Logout
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

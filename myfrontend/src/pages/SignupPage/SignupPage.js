@@ -40,6 +40,7 @@ const SignupPage = () => {
       setError('');
       setPassword('');
       setUsername('');
+      navigate('/');
   }
  
 
