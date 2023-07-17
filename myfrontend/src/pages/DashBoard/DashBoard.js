@@ -39,13 +39,17 @@ function DashBoard() {
   }
   
   function handleSportsClick(Category){
-    navigate(`/${Category}`);
+    navigate(`/${emailid}/${Category}`);
   };
   
  
   function handleElectronicsClick(Category){
     // setCategoery(Category);
-    navigate(`/${Category}`)
+    navigate(`/${emailid}/${Category}`);
+  }
+
+  function  handleSorting(){
+    navigate(`/sortedproducts/${emailid}`);
   }
 
 
@@ -105,7 +109,7 @@ function DashBoard() {
             </li>
             <li className="nav-item">
               <Dropdown>
-                <Dropdown.Toggle variant="secondary" id="sort-dropdown">
+                <Dropdown.Toggle variant="secondary" id="sort-dropdown"  onClick={handleSorting}>
                   Sort By
                 </Dropdown.Toggle>
 
